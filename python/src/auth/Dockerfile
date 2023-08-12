@@ -6,6 +6,7 @@ RUN apt-get update \
 	&& pip install --no-cache-dir --upgrade pip 
 WORKDIR /app
 COPY ./requirements.txt /app
+## do this last in separate layer in order to build separately this layer
 RUN  pip install --no-cache-dir --requirement /app/requirements.txt
 COPY . /app
 EXPOSE 5000
